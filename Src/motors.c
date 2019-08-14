@@ -20,6 +20,7 @@ void Motors_Init()
 {
   /*第一个函数,启动定时器*/
   HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_4);
   
   motor_1 = (stm32_motor){.dir_port = GPIOB,
                           .pin_1    = GPIO_PIN_10,
@@ -30,7 +31,7 @@ void Motors_Init()
                           .pin_1    = GPIO_PIN_4,
                           .pin_2    = GPIO_PIN_7,
                           .tim      = &htim4,
-                          .channel  = TIM_CHANNEL_3};                          
+                          .channel  = TIM_CHANNEL_4};                          
 }
 
 void spin(stm32_motor *motor,uint16_t speed,uint8_t inv)
